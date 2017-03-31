@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: htdoc
+    destination: /var/www/html
+hooks:
+  ApplicationStop:
+    - location: Scripts/ServiceStop.sh
+      timeout: 360
+  BeforeInstall:
+    - location: Scripts/EarseApp.sh
+      timeout: 360
+  ApplicationStart:
+    - location: Scripts/ServiceStart.sh
+      timeout: 360
